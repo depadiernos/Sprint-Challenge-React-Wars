@@ -8,13 +8,19 @@ const CharacterContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `
+const CenteredLoader = styled(Loader).attrs(({type, color, height, width}) => ({
+  type, color, height, width
+}))`
+  align-self: center;
+  padding-top: 5rem;
+`
 
 
 export default function ({ characters }) {
   return <CharacterContainer>
     {(characters && characters.results) ? characters.results.map((character, index) => {
       return <CharacterCard key={index} character={character} />
-    }) : <Loader
+    }) : <CenteredLoader
         type="Puff"
         color="beige"
         height={300}
