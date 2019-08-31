@@ -13,6 +13,6 @@ export default function({direction,currentPage, setCurrentPage}) {
     if (direction === "next") setCurrentPage(page => page+1)
   }
 
-  const isDisabled = currentPage <= 1
+  const isDisabled = currentPage <= 1 || currentPage >= 9
   return <Button onClick={handleClick} disabled={(direction === "previous") && isDisabled}>{direction}</Button>
 }
